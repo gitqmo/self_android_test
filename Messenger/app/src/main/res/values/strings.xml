@@ -1,0 +1,12 @@
+<resources>
+    <string name="title_activity_receive_message">Receive Message</string>
+
+    <string name="app_name">Messenger</string>
+
+    <string name="editMessage">請輸入訊息</string>
+    <string name="sendButton">Send Message</string>
+
+    <string name="receive">Receive Message</string>
+
+    <string name="chooserTitle">"Send Message..."</string>
+</resources>
