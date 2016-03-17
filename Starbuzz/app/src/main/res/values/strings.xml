@@ -1,0 +1,17 @@
+<resources>
+    <!-- Activity Label -->
+    <string name="topLevelActivity_title">Starbuzz</string>
+    <string name="drinkCategoryActivity_title">title_activity_drink_category</string>
+
+    <!-- Icon Image File Name -->
+    <string name="starbuzz_logo">Starbuzz logo</string>
+
+
+    <!-- 靜態資料 -->
+    <string-array name="options">
+        <item>Drinks</item>
+        <item>Food</item>
+        <item>Stores</item>
+    </string-array>
+
+</resources>
