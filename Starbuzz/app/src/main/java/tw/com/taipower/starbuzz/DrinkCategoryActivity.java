@@ -1,9 +1,10 @@
 package tw.com.taipower.starbuzz;
 
 import android.app.ListActivity;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Adapter;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -26,5 +27,18 @@ public class DrinkCategoryActivity extends ListActivity {
                 android.R.layout.simple_list_item_1,    //Android內建ListView的一種樣式
                 Drink.drinks);
         listDrinks.setAdapter(listAdaper);
+    }
+
+    @Override
+    protected void onListItemClick(ListView listView, View view, int position, long id) {
+        Intent intent = new Intent();
+
+        intent.setClass(this, DrinkActivity.class);
+
+        //因為drinks陣列裡面有3個Drink物件，所以id會回傳畫面所點擊的0、1、2
+        //Log.d("onListItemClick id:", String.valueOf(id));
+
+        intent.putExtra(DrinkActivity.EXTRA_DRINKNO, id);
+        startActivity(intent);
     }
 }
