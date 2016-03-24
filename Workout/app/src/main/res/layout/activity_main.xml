@@ -9,10 +9,10 @@
     <fragment
         class="tw.com.taipower.workout.WorkoutListFragment"
         android:id="@+id/list_fragment"
-        android:layout_width="0dp"
-        android:layout_weight="2"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <!-- 此法為固定嵌入fragment方法-->
     <!--<fragment-->
         <!--class="tw.com.taipower.workout.WorkoutDetailFragment"-->
         <!--android:id="@+id/detail_fragment"-->
@@ -22,12 +22,12 @@
         <!--tools:layout="@layout/fragment_workout_detail"-->
         <!--/>-->
 
+    <!-- 小手機螢幕只須顯示Menu清單，不須顯示detail細項 -->
     <!-- 使用【FrameLayout】而不使用【fragment】是因為我們要透過程式化方式，把fragment增加到FrameLayout-->
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="0dp"
-        android:layout_weight="3"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
+    <!--<FrameLayout-->
+        <!--android:id="@+id/fragment_container"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="3"-->
+        <!--android:layout_height="match_parent">-->
+    <!--</FrameLayout>-->
 </LinearLayout>
