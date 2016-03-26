@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Debuuuuug", this.getClass().toString()+" Hello onCreate");
 //        WorkoutDetailFragment fragment;
 
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListListen
 
     @Override
     public void itemClicked(long id) {
+        Log.d("Debuuuuug", this.getClass().toString()+" Hello itemClicked");
         View fragmentContainer;
 
         fragmentContainer = this.findViewById(R.id.fragment_container);

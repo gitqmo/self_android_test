@@ -2,6 +2,7 @@ package tw.com.taipower.workout;
 
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,17 @@ public class WorkoutDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         if(savedInstanceState != null){
             this.workoutId = savedInstanceState.getLong("WorkoutId");
+        }else{
+            FragmentTransaction fragment;
+            StopwatchFragment stopwatchFragment;
+
+            fragment = this.getChildFragmentManager().beginTransaction();
+            stopwatchFragment = new StopwatchFragment();
+
+            fragment.replace(R.id.stopwatch_container, stopwatchFragment);
+            fragment.addToBackStack(null);
+            fragment.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            fragment.commit();
         }
 
         // Inflate the layout for this fragment
