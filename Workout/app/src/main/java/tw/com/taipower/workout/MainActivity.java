@@ -8,11 +8,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity implements WorkoutListListener{
+public class MainActivity extends LogTraceActivity implements WorkoutListListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Debuuuuug", this.getClass().toString()+" Hello onCreate");
+        Log.d("LogTrace", this.getLocalClassName() + ":onCreate()");
 //        WorkoutDetailFragment fragment;
 
         super.onCreate(savedInstanceState);
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListListen
 
     @Override
     public void itemClicked(long id) {
-        Log.d("Debuuuuug", this.getClass().toString()+" Hello itemClicked");
+        Log.d("LogTrace", this.getLocalClassName() + ":itemClicked()");
         View fragmentContainer;
 
         fragmentContainer = this.findViewById(R.id.fragment_container);

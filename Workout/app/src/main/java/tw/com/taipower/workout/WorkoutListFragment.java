@@ -26,7 +26,6 @@ public class WorkoutListFragment extends ListFragment {
 
     @Override
     public void onAttach(Context context) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onAttach");
         super.onAttach(context);
         this.listener = (WorkoutListListener) context;
     }
@@ -34,7 +33,7 @@ public class WorkoutListFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onCreateView");
+        Log.d("LogTrace", this.getClass().toString() + ":onCreateView()");
         // Inflate the layout for this fragment
 
         String[] names;
@@ -54,70 +53,10 @@ public class WorkoutListFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onListItemClick");
+        Log.d("LogTrace", this.getClass().toString() + ":onListItemClick()");
         //當ListView裡的項目被點擊時，呼叫自訂的偵聽器(WorkoutListListener)
         if(this.listener != null){
             this.listener.itemClicked(id);
         }
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onCreate");
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onActivityCreated");
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onViewStateRestored(Bundle savedInstanceState) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onViewStateRestored");
-        super.onViewStateRestored(savedInstanceState);
-    }
-
-    @Override
-    public void onStart() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onStart");
-        super.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onResume");
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onPause");
-        super.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onStop");
-        super.onStop();
-    }
-
-    @Override
-    public void onDestroyView() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onDestroyView");
-        super.onDestroyView();
-    }
-
-    @Override
-    public void onDestroy() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onDestroy");
-        super.onDestroy();
-    }
-
-    @Override
-    public void onDetach() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onDetach");
-        super.onDetach();
     }
 }

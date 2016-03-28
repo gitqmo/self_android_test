@@ -18,14 +18,13 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StopwatchFragment extends Fragment implements View.OnClickListener{
+public class StopwatchFragment extends LogTraceFragment implements View.OnClickListener{
     private int seconds = 0;
     private boolean running;
     private boolean wasRunning;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Log.d("Debuuuuug", this.getClass().toString()+" Hello onCreate");
         super.onCreate(savedInstanceState);
 //        this.setContentView(R.layout.activity_stopwatch); //Fragment不是在onCreate()方法裡設定layout。
 
@@ -45,7 +44,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onCreateView");
+        Log.d("LogTrace", this.getClass().toString() + ":onCreateView()");
         Button startButton, stopButton, resetButton;
         View layout = inflater.inflate(R.layout.fragment_stopwatch, container, false);
         this.runTimer(layout);
@@ -63,7 +62,6 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onResume(){
-        Log.d("Debuuuuug", this.getClass().toString()+" Hello onResume");
         super.onResume();
         if(wasRunning){
             running = true;
@@ -72,7 +70,6 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onPause(){
-        Log.d("Debuuuuug", this.getClass().toString()+" Hello onPause");
         super.onPause();
         wasRunning = running;
         running = false;
@@ -80,7 +77,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onSaveInstanceState(Bundle saveInstanceSatae){
-        Log.d("Debuuuuug", this.getClass().toString()+" Hello onSaveInstanceState");
+        Log.d("LogTrace", this.getClass().toString() + ":onSaveInstanceState()");
         saveInstanceSatae.putInt("seconds", seconds);
         saveInstanceSatae.putBoolean("running", running);
         saveInstanceSatae.putBoolean("wasRunning", wasRunning);
@@ -90,7 +87,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
      * 顯示時間
      */
     private void runTimer(View view){
-        Log.d("Debuuuuug", this.getClass().toString()+" Hello runTimer");
+        Log.d("LogTrace", this.getClass().toString() + ":runTimer()");
         final TextView timeView = (TextView) view.findViewById(R.id.timeView);
         final Handler handler;
 
@@ -117,7 +114,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
      * 檢查Timer是否執行
      */
     private void checkTimer(){
-//        Log.d("Debuuuuug", this.getClass().toString()+" Hello checkTimer");
+//        Log.d("LogTrace", this.getClass().toString() + ":checkTimer()");
         if(this.running){
             seconds++;
         }
@@ -128,7 +125,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
      * @param view
      */
     public void onClickStart(View view){
-        Log.d("Debuuuuug", this.getClass().toString()+" Hello onClickStart");
+        Log.d("LogTrace", this.getClass().toString() + ":onClickStart()");
         this.running = true;
     }
 
@@ -137,7 +134,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
      * @param view
      */
     public void onClickStop(View view){
-        Log.d("Debuuuuug", this.getClass().toString()+" Hello onClickStop");
+        Log.d("LogTrace", this.getClass().toString() + ":onClickStop()");
         this.running = false;
     }
 
@@ -146,14 +143,14 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
      * @param view
      */
     public void onClickReset(View view){
-        Log.d("Debuuuuug", this.getClass().toString()+" Hello onClickStop");
+        Log.d("LogTrace", this.getClass().toString() + ":onClickReset()");
         this.running = false;
         this.seconds = 0;
     }
 
     @Override
     public void onClick(View v) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onClick");
+        Log.d("LogTrace", this.getClass().toString() + ":onClick()");
         switch(v.getId()){
             case R.id.startButton:
                 this.onClickStart(v);
@@ -165,53 +162,5 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
                 this.onClickReset(v);
                 break;
         }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onAttach");
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onActivityCreated");
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onViewStateRestored(Bundle savedInstanceState) {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onViewStateRestored");
-        super.onViewStateRestored(savedInstanceState);
-    }
-
-    @Override
-    public void onStart() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onStart");
-        super.onStart();
-    }
-
-    @Override
-    public void onStop() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onStop");
-        super.onStop();
-    }
-
-    @Override
-    public void onDestroyView() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onDestroyView");
-        super.onDestroyView();
-    }
-
-    @Override
-    public void onDestroy() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onDestroy");
-        super.onDestroy();
-    }
-
-    @Override
-    public void onDetach() {
-        Log.d("Debuuuuug", this.getClass().toString() + " Hello onDetach");
-        super.onDetach();
     }
 }

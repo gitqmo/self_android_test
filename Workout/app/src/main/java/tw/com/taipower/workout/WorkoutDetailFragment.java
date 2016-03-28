@@ -4,6 +4,7 @@ package tw.com.taipower.workout;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WorkoutDetailFragment extends Fragment {
+public class WorkoutDetailFragment extends LogTraceFragment {
     private long workoutId;
 
     public WorkoutDetailFragment() {
@@ -23,6 +24,7 @@ public class WorkoutDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d("LogTrace", this.getClass().toString() + ":onCreateView()");
         if(savedInstanceState != null){
             this.workoutId = savedInstanceState.getLong("WorkoutId");
         }else{
@@ -64,10 +66,12 @@ public class WorkoutDetailFragment extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle saveInstanceState) {
+        Log.d("LogTrace", this.getClass().toString() + ":onSaveInstanceState()");
         saveInstanceState.putLong("WorkoutId", this.workoutId);
     }
 
     public void setWorkoutId(long workoutId) {
+        Log.d("LogTrace", this.getClass().toString() + ":setWorkoutId()");
         this.workoutId = workoutId;
     }
 }
