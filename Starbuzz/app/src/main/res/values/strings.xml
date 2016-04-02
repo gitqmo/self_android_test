@@ -6,6 +6,10 @@
     <!-- Icon Image File Name -->
     <string name="starbuzz_logo">Starbuzz logo</string>
 
+    <string name="favorite">Favorite</string>
+
+    <string name="favorites">Your favorite drinks:</string>
+
 
     <!-- 靜態資料 -->
     <string-array name="options">

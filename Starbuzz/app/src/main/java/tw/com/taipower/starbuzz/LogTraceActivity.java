@@ -1,4 +1,4 @@
-package tw.com.taipower.workout;
+package tw.com.taipower.starbuzz;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -22,6 +22,12 @@ public class LogTraceActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        Log.d("LogTrace", this.getLocalClassName() + ":onPause()");
+        super.onPause();
+    }
+
+    @Override
     protected void onResume() {
         Log.d("LogTrace", this.getLocalClassName() + ":onResume()");
         super.onResume();
@@ -31,12 +37,6 @@ public class LogTraceActivity extends AppCompatActivity {
     protected void onStart() {
         Log.d("LogTrace", this.getLocalClassName() + ":onStart()");
         super.onStart();
-    }
-
-    @Override
-    protected void onPause() {
-        Log.d("LogTrace", this.getLocalClassName() + ":onPause()");
-        super.onPause();
     }
 
     @Override
