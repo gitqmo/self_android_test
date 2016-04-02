@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -155,6 +156,17 @@ public class DrinkActivity extends LogTraceActivity {
      * @param view
      */
     public void onFavoriteClicked(View view) {
+        //方法一：在Main Thread中執行存取資料庫，有可能造成App變慢。
+//        this.updateDatabase();
+
+        //方法二：使用背景執行緒來更新資料庫，可不影響Main Thread與使用者互動。
+        new UpdateDrinkTask().execute(this.drinkNo);
+    }
+
+    /**
+     * 把checkbox被點擊的isChecked值存入資料庫。
+     */
+    private void updateDatabase() {
         ContentValues drinkValues;
         SQLiteOpenHelper starbuzzDatabaseHelper;
 
@@ -172,6 +184,49 @@ public class DrinkActivity extends LogTraceActivity {
             Toast.makeText(this, this.getClass().toString() + ":Database unavailable", Toast.LENGTH_LONG).show();
             Log.d("LogTrace", this.getClass().toString() + ":Database unavailable");
         }
+    }
 
+    /**
+     * 使用AsyncTask的背景執行緒來更新資料庫
+     */
+    private class UpdateDrinkTask extends AsyncTask<Integer, Void, Boolean> {
+        ContentValues drinkValues;
+
+        @Override
+        protected Boolean doInBackground(Integer... params) {
+            int drinkNo;
+            SQLiteOpenHelper sqLiteOpenHelper;
+
+            drinkNo = params[0];
+            sqLiteOpenHelper = new StarbuzzDatabaseHelper(DrinkActivity.this);
+            try {
+                SQLiteDatabase sqLiteDatabase;
+
+                sqLiteDatabase = sqLiteOpenHelper.getWritableDatabase();
+                sqLiteDatabase.update("DRINK",
+                        drinkValues,
+                        "_id = ?",
+                        new String[]{String.valueOf(drinkNo)});
+                sqLiteDatabase.close();
+                return true;
+            } catch (SQLiteException e) {
+                Log.d("LogTrace", this.getClass().toString() + ":Database unavailable");
+                return false;
+            }
+        }
+
+        @Override
+        protected void onPreExecute() {
+            drinkValues = new ContentValues();
+            drinkValues.put("FAVORITE", DrinkActivity.this.favorite.isChecked());
+        }
+
+        @Override
+        protected void onPostExecute(Boolean success) {
+            if (!success) {
+                Toast.makeText(DrinkActivity.this, this.getClass().toString() + ":Database unavailable", Toast.LENGTH_LONG).show();
+                Log.d("LogTrace", this.getClass().toString() + ":Database unavailable");
+            }
+        }
     }
 }
