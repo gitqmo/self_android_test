@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="background">#FFEEDD</color>
+
+    <color name="drawer_list">#FFEEFF</color>
 </resources>

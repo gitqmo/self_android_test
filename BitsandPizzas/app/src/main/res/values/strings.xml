@@ -7,4 +7,33 @@
     <string name="action_settings">Settings</string>
     <string name="action_create_order">Create Order</string>
     <string name="action_share">Share</string>
+
+    <!-- Fragment's title -->
+    <string name="title_top">Top Fragment</string>
+
+    <!-- Drawer's List -->
+    <string-array name="titles">
+        <item>Home</item>
+        <item>Pizzas</item>
+        <item>Pasta</item>
+        <item>Stores</item>
+    </string-array>
+
+    <!-- Pizza's Menu -->
+    <string-array name="pizzas">
+        <item>Diavolo</item>
+        <item>Funghi</item>
+    </string-array>
+
+    <!-- Pasta's Menu -->
+    <string-array name="pasta">
+        <item>Spaghetti Bolognese</item>
+        <item>Lassagna</item>
+    </string-array>
+
+    <!-- Store's Information -->
+    <string-array name="stores">
+        <item>Cambridge</item>
+        <item>Sebastopol</item>
+    </string-array>
 </resources>
