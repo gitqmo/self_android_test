@@ -1,6 +1,7 @@
 package tw.com.taipower.bitsandpizzas;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -11,43 +12,61 @@ import android.util.Log;
 public class LogTraceActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        Log.d("LogTrace", this.getLocalClassName() + ":onCreate()");
+        Log.d("LogTrace", this.getLocalClassName() + ":\t\tonCreate()");
         super.onCreate(savedInstanceState, persistentState);
     }
 
     @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        Log.d("LogTrace", this.getLocalClassName() + ":\t\tonRestoreInstanceState()");
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        Log.d("LogTrace", this.getLocalClassName() + ":\t\tonPostCreate()");
+        super.onPostCreate(savedInstanceState);
+    }
+
+    @Override
     protected void onStart() {
-        Log.d("LogTrace", this.getLocalClassName() + ":onStart()");
+        Log.d("LogTrace", this.getLocalClassName() + ":\t\tonStart()");
         super.onStart();
     }
 
     @Override
     protected void onRestart() {
-        Log.d("LogTrace", this.getLocalClassName() + ":onRestart()");
+        Log.d("LogTrace", this.getLocalClassName() + ":\t\tonRestart()");
         super.onRestart();
     }
 
     @Override
     protected void onResume() {
-        Log.d("LogTrace", this.getLocalClassName() + ":onResume()");
+        Log.d("LogTrace", this.getLocalClassName() + ":\t\tonResume()");
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        Log.d("LogTrace", this.getLocalClassName() + ":onPause()");
+        Log.d("LogTrace", this.getLocalClassName() + ":\t\tonPause()");
         super.onPause();
     }
 
     @Override
     protected void onStop() {
-        Log.d("LogTrace", this.getLocalClassName() + ":onStop()");
+        Log.d("LogTrace", this.getLocalClassName() + ":\t\tonStop()");
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        Log.d("LogTrace", this.getLocalClassName() + ":onDestroy()");
+        Log.d("LogTrace", this.getLocalClassName() + ":\t\tonDestroy()");
         super.onDestroy();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        Log.d("LogTrace", this.getLocalClassName() + ":\t\tonConfigurationChanged()");
+        super.onConfigurationChanged(newConfig);
     }
 }

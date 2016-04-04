@@ -19,6 +19,10 @@
         <item>Stores</item>
     </string-array>
 
+    <!-- Drawer's Status-->
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
+
     <!-- Pizza's Menu -->
     <string-array name="pizzas">
         <item>Diavolo</item>
