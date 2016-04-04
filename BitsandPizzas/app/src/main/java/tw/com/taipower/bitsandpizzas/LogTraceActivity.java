@@ -1,14 +1,14 @@
 package tw.com.taipower.bitsandpizzas;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 /**
  * Created by new on 2016/3/27.
  */
-public class LogTraceActivity extends AppCompatActivity {
+public class LogTraceActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         Log.d("LogTrace", this.getLocalClassName() + ":onCreate()");
