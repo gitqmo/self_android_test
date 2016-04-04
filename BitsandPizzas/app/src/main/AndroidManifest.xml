@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="tw.com.taipower.bitsandpizzas"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    package="tw.com.taipower.bitsandpizzas"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".OrderActivity">
+
+        <activity
+            android:name=".OrderActivity"
+            android:label="@string/title_activity_order"
+            android:parentActivityName=".MainActivity">
+            <!-- 只有在支援API 16以下的app時才需使用增加<meta-data>元素的方法。 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
         </activity>
     </application>
 

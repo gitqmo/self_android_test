@@ -16,6 +16,12 @@ public class LogTraceActivity extends Activity {
     }
 
     @Override
+    protected void onStart() {
+        Log.d("LogTrace", this.getLocalClassName() + ":onStart()");
+        super.onStart();
+    }
+
+    @Override
     protected void onRestart() {
         Log.d("LogTrace", this.getLocalClassName() + ":onRestart()");
         super.onRestart();
@@ -25,12 +31,6 @@ public class LogTraceActivity extends Activity {
     protected void onResume() {
         Log.d("LogTrace", this.getLocalClassName() + ":onResume()");
         super.onResume();
-    }
-
-    @Override
-    protected void onStart() {
-        Log.d("LogTrace", this.getLocalClassName() + ":onStart()");
-        super.onStart();
     }
 
     @Override
