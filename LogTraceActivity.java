@@ -5,15 +5,17 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 /**
  * Created by new on 2016/3/27.
  */
 public class LogTraceActivity extends Activity {
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+    protected void onCreate(Bundle savedInstanceState) {
         Log.d("LogTrace", this.getLocalClassName() + ":\tonCreate()");
-        super.onCreate(savedInstanceState, persistentState);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -47,6 +49,12 @@ public class LogTraceActivity extends Activity {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        Log.d("LogTrace", this.getLocalClassName() + ":\tonSaveInstanceState()");
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     protected void onPause() {
         Log.d("LogTrace", this.getLocalClassName() + ":\tonPause()");
         super.onPause();
@@ -68,5 +76,17 @@ public class LogTraceActivity extends Activity {
     public void onConfigurationChanged(Configuration newConfig) {
         Log.d("LogTrace", this.getLocalClassName() + ":\tonConfigurationChanged()");
         super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        Log.d("LogTrace", this.getLocalClassName() + ":\tonPrepareOptionsMenu()");
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d("LogTrace", this.getLocalClassName() + ":\tonOptionsItemSelected()");
+        return super.onOptionsItemSelected(item);
     }
 }
